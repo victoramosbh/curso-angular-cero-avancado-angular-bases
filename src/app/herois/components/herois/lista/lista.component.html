@@ -1,0 +1,18 @@
+<h3>Lista de Herois</h3>
+
+<div *ngIf="heroiDeletado else naoApagouNada">
+  <h3 >Heroi apagado <small class="text-danger">{{heroiDeletado}}</small></h3>
+</div>
+
+<ng-template #naoApagouNada>
+  <h3>Não apagou nada</h3>
+</ng-template>
+
+<button
+*ngIf="nomesHerois.length > 0"
+(click)="apagarUltimoHeroi()" class="btn btn-outline-danger">Apagar ultimo heroi</button>
+
+<ul class="mt-2 list-group">
+  <li *ngFor="let nome of nomesHerois"
+  class="list-group-item">{{nome}}</li>
+</ul>
